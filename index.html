@@ -12,12 +12,14 @@
 </head>
 
 <body onload="find2()">
+  <div style="text-align:center">
   <input type="text" style="width:400px; height:20px; font-family:'Segoe UI'" id="searchterm" placeholder="Enter a search term...">
   <button style="width:100px; height:25px; font-family:'Segoe UI'; margin:10px" onclick="find()">Search</button><br>
   <h1 style="font-family:'Segoe UI'">Video Results</h1>
   <label id="result" style="font-family:'Segoe UI'">Video will appear here.</label><br><br><br>
   <h1 style="font-family:'Segoe UI'">Recent Searches</h1>
   <label style="font-family:'Segoe UI'" id="recentsearches"></label>
+    </div>
 
   <script>
     async function find(){
