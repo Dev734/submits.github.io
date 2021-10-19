@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:type" content="website">
+<meta property="og:title" content="AbsqTube">
+<meta property="og:description" content="Simple YouTube Bypasser">
+<meta name="theme-color" content="#d42a2a">
+  <title>AbsqTube</title>
+</head>
+
+<body onload="find2()">
+  <input type="text" style="width:400px; height:20px; font-family:'Segoe UI'" id="searchterm" placeholder="Enter a search term...">
+  <button style="width:100px; height:25px; font-family:'Segoe UI'; margin:10px" onclick="find()">Search</button><br>
+  <h1 style="font-family:'Segoe UI'">Video Results</h1>
+  <label id="result" style="font-family:'Segoe UI'">Video will appear here.</label><br><br><br>
+  <h1 style="font-family:'Segoe UI'">Recent Searches</h1>
+  <label style="font-family:'Segoe UI'" id="recentsearches"></label>
+
+  <script>
+    async function find(){
+  window.location.href = "https://submits.github.io/?" + document.getElementById("searchterm").value
+
+    }
+
+    async function find2(){
+  var segments = window.location.href.split("?")
+  let keywords = segments[1]
+  keywords = keywords.replace(/%20/g, " ")
+  document.getElementById("searchterm").value = keywords
+const YOUTUBE_API_KEY = "AIzaSyC2RxLLmi8pMxb_hPwtwcMW6XhrG4dIdBM";
+var searchterms = document.getElementById("searchterm").value
+const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${keywords}&key=${YOUTUBE_API_KEY}`;
+const response = await fetch(url)
+const data = await response.json();
+const response2 = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${data.items[0].id.videoId}&key=${YOUTUBE_API_KEY}`)
+const data2 = await response2.json();
+document.title = data.items[0].snippet.title
+document.getElementById("result").innerHTML = "Uploader: <b>" + data.items[0].snippet.channelTitle + "</b><br>Title: <b>" + data.items[0].snippet.title + "</b><br>Description: <b>" + data.items[0].snippet.description + "</b><br><br><b>" + data2.items[0].statistics.viewCount + "</b> Views • <b>" + data2.items[0].statistics.likeCount + "</b> Likes • <b>" + data2.items[0].statistics.dislikeCount + "</b> Dislikes • <b>" + data2.items[0].statistics.commentCount + "</b> Comments" + "<br><br><br>" + "<iframe style=\"border:none;width:600px;height:350px\" src=\"" + "https://www.youtube.com/embed/" + data.items[0].id.videoId + "\"></iframe>"
+sessionStorage.setItem("recents", "• <a href=\"" + window.location.href  + "\">" + data.items[0].snippet.title + "</a><br>" + sessionStorage.getItem("recents"));
+document.getElementById("recentsearches").innerHTML =  sessionStorage.getItem("recents");
+}
+    </script>
+</body>
+
+</html>
