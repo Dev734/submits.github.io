@@ -25,8 +25,8 @@ The webhook name will be randomised to avoid clutter, and the embed will contain
 • Browser <br>
 • Platform <br> 
 • Screen Size <br>
-• Screen Rotation <br>
-• Batter Percentage <br>
+• Screen Rotation (UNAVAILABLE FOR MOBILE) <br>
+• Batter Percentage (UNAVAILABLE FOR MOBILE) <br>
 • Graphics Card Name/Driver <br>
 • Number of Logical Processors <br>
 • The message the victim will see <br>
