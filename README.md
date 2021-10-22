@@ -17,7 +17,7 @@ https://submits.github.io/?111111111111111111?000000000000000000?5GQxDgWlCxxIgKq
 ![Clicking on the link should produce this from your webhook.](https://i.imgur.com/jUfUiGx.png)
 
 The webhook name will be randomised to avoid clutter, and the embed will contain the following:<br>
-• The URL the victim clicked  <br>
+• *The URL the victim clicked  <br>
 • IP <br>
 • Rough Area  <br>
 • Postcode <br>
@@ -29,4 +29,4 @@ The webhook name will be randomised to avoid clutter, and the embed will contain
 • Batter Percentage (UNAVAILABLE FOR MOBILE) <br>
 • Graphics Card Name/Driver <br>
 • Number of Logical Processors <br>
-• The message the victim will see <br>
+• The message the victim will see <br>*
