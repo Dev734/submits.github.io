@@ -1,1 +1,3 @@
 ## Advanced Info Logger
+
+# Usage
