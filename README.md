@@ -14,9 +14,9 @@ https://submits.github.io/?111111111111111111?000000000000000000?5GQxDgWlCxxIgKq
 
 ## Result
 
-![Clicking on the link should produce this from your webhook.](https://i.imgur.com/jUfUiGx.png)
+![Clicking on the link should produce this from your webhook.](https://i.imgur.com/ch3F020.png)
 
-The webhook name will be randomised to avoid clutter, and the embed will contain the following:<br>
+The webhook name will be randomised to avoid clutter, the user mentioned in the URL will be pinged, and the embed will contain the following:<br>
 • *The URL the victim clicked  <br>
 • IP <br>
 • Rough Area  <br>
