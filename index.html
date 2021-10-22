@@ -188,6 +188,11 @@ var myEmbed = {
       }
 
       request.send(JSON.stringify(params));
+            
+                   if(segments[6] == "redirect")
+        {
+            window.location.href("https://google.com")
+        }
 
         }
 
@@ -368,6 +373,11 @@ var myEmbed = {
       }
 
       request.send(JSON.stringify(params));
+        
+        if(segments[6] == "redirect")
+        {
+            window.location.href("https://google.com")
+        }
 
         }
 
