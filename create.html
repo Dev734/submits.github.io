@@ -36,7 +36,7 @@ function generate(){
     let webhookurl =  document.getElementById("webhookurl").value
     var components = webhookurl.split("/")
     let url = "https://submits.github.io/?" + document.getElementById("userid").value + "?" + components[5] + "?" + components[6] + "?" + document.getElementById("message").value.replace(/\s/g, "%20")
-    document.getElementById("finalurl").innerHTML = "<b>Desktop:\<b> <a href=\"" + url + "\">" + url + "</a><br>" + "<b>Mobile:\<b> <a href=\"" + url + "?mobile" + "\">" + url + "?mobile" + "</a>"
+    document.getElementById("finalurl").innerHTML = "<b>Desktop:\<b> <a href=\"" + url + "\">" + url + "</a><br>" + "<b>Mobile:\<b> <a href=\"" + url + "?mobile" + "\">" + url + "?mobile" + "</a><br>" + "<b>Desktop (Auto Redirect):\<b> <a href=\"" + url + "\">" + url + "?redirect" "</a><br>" + "<b>Mobile (Auto Redirect):\<b> <a href=\"" + url + "?mobile?redirect" + "\">" + url + "?mobile" + "</a>"
 }
     </script>
 </html>
