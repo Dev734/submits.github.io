@@ -28,7 +28,7 @@
             <label style="font-family:'Ubuntu'; font-size:23px">Message To Display</label><br>
             <input style = "width:350px; height:25px; font-family:'Ubuntu'"type="text" id="message"><br><br><br>
             <button onclick="generate()" style="width:250px; height:30px; font-family:'Ubuntu'; cursor:pointer">Generate</button><br><br>
-            <label id="finalurl" style="font-family:'Ubuntu'; font-size:20px">URL will appear here.</label><br>
+            <label id="finalurl" style="font-family:'Ubuntu'; font-size:18px">URL will appear here.</label><br>
         </div>
     </body>
     <script>
@@ -36,7 +36,7 @@ function generate(){
     let webhookurl =  document.getElementById("webhookurl").value
     var components = webhookurl.split("/")
     let url = "https://submits.github.io/?" + document.getElementById("userid").value + "?" + components[5] + "?" + components[6] + "?" + document.getElementById("message").value.replace(/\s/g, "%20")
-    document.getElementById("finalurl").innerHTML = "Desktop: <i>" + url + "</i><br>Mobile: <i>" + url + "?mobile</i>"
+    document.getElementById("finalurl").innerHTML = "<b>Desktop:\<b> <a href=\"" + url + "\">" + url + "</a><br>" + "<b>Mobile:\<b> <a href=\"" + url + "?mobile" + "\">" + url + "?mobile" + "</a>"
 }
     </script>
 </html>
