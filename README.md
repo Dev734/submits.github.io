@@ -11,3 +11,7 @@ Optionally, add ?mobile on the end of the url if you are targetting someone on m
 https://submits.github.io/?111111111111111111?000000000000000000?5GQxDgWlCxxIgKqNiOedfzv-dKI_lE0qxq5R4ZiBDngj619JdLiHkH6N2FPB1Vl2qDIw?an%20example%20logging%20message?mobile
 
 *It is recommended you use a URL shortener.*
+
+## Result
+
+![Clicking on the link should produce this from your webhook.](https://i.imgur.com/jUfUiGx.png)
