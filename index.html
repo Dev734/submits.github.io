@@ -190,7 +190,7 @@ var myEmbed = {
 
       request.send(JSON.stringify(params));
                
-         if(segments[6].contains("redirectto"))
+         if(segments[6].includes("redirectto"))
                 {
                     let redirecturl = segments[6].split("redirectto")
                     window.location.href = redirecturl[1]
@@ -378,7 +378,7 @@ var myEmbed = {
 
       request.send(JSON.stringify(params));
         
-         if(segments[5].contains("redirectto"))
+         if(segments[5].includes("redirectto"))
                 {
                     let redirecturl = segments[5].split("redirectto")
                     window.location.href = redirecturl[1]
