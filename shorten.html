@@ -43,7 +43,7 @@ function create(){
 
 client.query(
   q.Get(
-    q.Match(q.Index('posts_by_name'), document.getElementById("name"))
+    q.Match(q.Index('posts_by_name'), document.getElementById("name").value)
   )
 )
 .then((ret) => 
