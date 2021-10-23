@@ -40,5 +40,5 @@ The [URL shortener](https://submits.github.io/shorten.html) does not need to be 
 ### How does it work?<br>
 When you input a name and url, it sends it to a database which stores these two pieces of data together.  Whilst this is happening, it also checks the name used against every other domain in the database, and if it is the same as another domain it will reject the request to add it to the database. However, it is successful, the domain will be added and whenever you load the outputted url it will extract the url from the database based of the name parsed into the url and redirect you.
 
-###Limitations<br>
+### Limitations<br>
 The database software this currently uses can store around 50k urls a month, with 5GB of raw text requests able to be sent.
