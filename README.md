@@ -35,4 +35,4 @@ The webhook name will be randomised to avoid clutter, the user mentioned in the 
 
 ## URL Shortener
 
-The [uRL shortener](https://submits.github.io/shorten.html) does not need to be used specifically for info logging, and is just a small extra thing I made that is still a work in progress
+The [URL shortener](https://submits.github.io/shorten.html) does not need to be used specifically for info logging, and is just a small extra thing I made that is still a work in progress
