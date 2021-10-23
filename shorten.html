@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>trolled</title>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <style>
+    @font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKcg72j00.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+      
+    </style>
+
+    </head>
+    <body>
+        <div style="text-align:center">
+    <h1 style="font-family:'Ubuntu'">URL Shortener</h1>
+            <label style="font-family:'Ubuntu'; font-size:23px">URL Ending (Replace spaces with -)</label><br>
+            <input style = "width:250px; height:25px; font-family:'Ubuntu'"type="text" id="name"><br><br>
+            <label style="font-family:'Ubuntu'; font-size:23px">URL To Redirect To</label><br>
+            <input style = "width:650px; height:25px; font-family:'Ubuntu'"type="text" id="redirect"><br><br><br>
+            <button onclick="create()" style="width:250px; height:30px; font-family:'Ubuntu'; cursor:pointer">Generate URL</button><br><br>
+            <label id="result" style="font-family:'Ubuntu'; font-size:18px">URL will appear here.</label><br>
+        </div>
+    </body>
+    <script>
+function create(){
+
+
+client.query(
+  q.Get(
+    q.Match(q.Index('posts_by_name'), document.getElementById("name"))
+  )
+)
+.then((ret) => 
+      
+document.getElementById("result").innerHTML = "Sorry, this ending is already is use."
+
+)
+.catch(function(e){
+    client.query(
+  q.Create(
+    q.Collection('url-database'),
+    { data: { name: document.getElementById("name").value, url:  document.getElementById("redirect").value } },
+  )
+)
+.then((ret) =>
+     document.getElementById("result").innerHTML = "Success! Your shortened URL is https://www.i-love-to.twerk.ga/?" + ret.data.name
+     )
+});
+
+
+
+
+}
+    </script>
+</html>
