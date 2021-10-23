@@ -1,4 +1,4 @@
-# Advanced Info Logger
+# Advanced Info Logger + URL Shortener
 
 ## Usage
 To create a URL, format it like this:
