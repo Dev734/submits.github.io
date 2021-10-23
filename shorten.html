@@ -71,17 +71,21 @@ document.getElementById("result").innerHTML = "Sorry, this ending is taken."
 }
         
         function remove(){
-            
-            
+ 
+
 client.query(
   q.Get(
     q.Match(q.Index('posts_by_name'), document.getElementById("name").value)
   )
 )
 .then((ret) => 
-      console.log(ret)
- )
 
+console.log(ret.ref)
+
+)
+.catch(function(e){
+    console.log("Not Found.")
+});
             
         }
     </script>
