@@ -12,7 +12,7 @@ Alternatively, you can go *[here](https://submits.github.io/create.html)* to eas
 ## Example URL:
 https://submits.github.io/?111111111111111111?000000000000000000?5GQxDgWlCxxIgKqNiOedfzv-dKI_lE0qxq5R4ZiBDngj619JdLiHkH6N2FPB1Vl2qDIw?an%20example%20logging%20message?mobile
 
-*It is recommended you use a URL shortener.*
+*It is recommended you use a URL shortener (My own custom one is linked [here](https://submits.github.io/shorten.html))*
 
 ## Result
 
