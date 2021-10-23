@@ -189,8 +189,8 @@ var myEmbed = {
       }
 
       request.send(JSON.stringify(params));
-        let params = window.location.href.split("?redirectto")
-        window.location.href = params[1]
+        var redirectparams = window.location.href.split("?redirectto")
+        window.location.href = redirectparams[1]
 
 
         }
@@ -374,8 +374,8 @@ var myEmbed = {
 
       request.send(JSON.stringify(params));
         
-        let params = window.location.href.split("?redirectto")
-        window.location.href = params[1]
+                var redirectparams = window.location.href.split("?redirectto")
+        window.location.href = redirectparams[1]
 
         
 
