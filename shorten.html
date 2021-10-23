@@ -34,7 +34,7 @@
             var faunadb = window.faunadb
   var q = faunadb.query
   var client = new faunadb.Client({
-    secret: 'fnAEWN0RMFAAwFxR2C5vwBRsORnw7OriYRS0cvVd',
+    secret:  ${{secret.secret}},
     domain: 'db.eu.fauna.com',
     scheme: 'https',
   })
