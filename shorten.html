@@ -79,14 +79,8 @@ client.query(
   )
 )
 .then((ret) => 
-      
-client.query(
-  q.Delete(
-    q.Ref(q.Collection('url-database'), ret.ref.id)
-  )
-)
-.then((ret) => console.log(ret))
-
+      console.log(ret)
+ )
 
             
         }
