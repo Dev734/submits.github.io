@@ -31,14 +31,13 @@
         </div>
     </body>
     <script>
-        var faunadb = window.faunadb
+            var faunadb = window.faunadb
   var q = faunadb.query
   var client = new faunadb.Client({
     secret: 'fnAEWN0RMFAAwFxR2C5vwBRsORnw7OriYRS0cvVd',
     domain: 'db.eu.fauna.com',
     scheme: 'https',
   })
-  
 function create(){
 
 
@@ -49,7 +48,7 @@ client.query(
 )
 .then((ret) => 
       
-document.getElementById("result").innerHTML = "Sorry, this ending is already is use."
+document.getElementById("result").innerHTML = "This name is taken."
 
 )
 .catch(function(e){
@@ -60,7 +59,8 @@ document.getElementById("result").innerHTML = "Sorry, this ending is already is 
   )
 )
 .then((ret) =>
-     document.getElementById("result").innerHTML = "Success! Your shortened URL is https://www.i-love-to.twerk.ga/?" + ret.data.name
+     
+     document.getElementById("result").innerHTML = "https://cancels.github.io/redirect.html?" + ret.data.name
      )
 });
 
