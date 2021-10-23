@@ -27,6 +27,7 @@
             <label style="font-family:'Ubuntu'; font-size:23px">URL To Redirect To</label><br>
             <input style = "width:650px; height:25px; font-family:'Ubuntu'"type="text" id="redirect"><br><br><br>
             <button onclick="create()" style="width:250px; height:30px; font-family:'Ubuntu'; cursor:pointer">Generate URL</button><br><br>
+            <button onclick="delete()" style="width:250px; height:30px; font-family:'Ubuntu'; cursor:pointer">Delete URL by Name</button><br><br>
             <label id="result" style="font-family:'Ubuntu'; font-size:18px">URL will appear here.</label><br>
         </div>
     </body>
@@ -68,5 +69,26 @@ document.getElementById("result").innerHTML = "Sorry, this ending is taken."
 
 
 }
+        
+        function remove(){
+            
+            
+client.query(
+  q.Get(
+    q.Match(q.Index('posts_by_name'), document.getElementById("name").value)
+  )
+)
+.then((ret) => 
+      
+client.query(
+  q.Delete(
+    q.Ref(q.Collection('url-database'), ret.ref.id)
+  )
+)
+.then((ret) => console.log(ret))
+
+)
+            
+        }
     </script>
 </html>
