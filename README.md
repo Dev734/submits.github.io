@@ -32,3 +32,7 @@ The webhook name will be randomised to avoid clutter, the user mentioned in the 
 • Graphics Card Name/Driver <br>
 • Number of Logical Processors <br>
 • The message the victim will see <br>*
+
+## URL Shortener
+
+The [uRL shortener](https://submits.github.io/shorten.html) does not need to be used specifically for info logging, and is just a small extra thing I made that is still a work in progress
